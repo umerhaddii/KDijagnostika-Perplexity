@@ -30,7 +30,7 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 # Chat input
-user_question = st.chat_input("Enter your automotive diagnostic question:")
+user_question = st.chat_input("Enter your question:")
 
 if user_question:
     # Add user message to chat history
@@ -58,4 +58,5 @@ if user_question:
     st.session_state.messages.append({
         "role": "assistant", 
         "content": sonar_response
+
     })
