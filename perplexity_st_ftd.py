@@ -49,7 +49,7 @@ if user_question:
         for node_name, node_output in stream_diagnostic_workflow(user_question, st.session_state.thread_id):
             if node_name == "sonar_search":
                 sonar_response = node_output["sonar_response"]
-                status_container.update(label="✅ Search completed", state="complete")
+                status_container.update(label="✅ Thoughts", state="complete")
                 
                 st.subheader("🌐 Diagnostic Response:")
                 st.markdown(sonar_response)
@@ -59,4 +59,5 @@ if user_question:
         "role": "assistant", 
         "content": sonar_response
     })
+
 
