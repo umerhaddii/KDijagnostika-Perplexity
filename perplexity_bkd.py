@@ -6,11 +6,24 @@ from typing import TypedDict
 from openai import OpenAI
 import streamlit as st
 
-SONAR_PROMPT = """Search the web for current technical information about automotive diagnostics. 
-Find detailed troubleshooting information, causes, solutions, and technical specifications.
-Include comprehensive technical data that will help diagnose automotive issues.
+SONAR_PROMPT = """You are an automotive diagnostic search assistant.
 
-IMPORTANT: Provide only the information without any citation numbers, brackets, or reference links. Give clean text responses only."""
+Rules:
+1. Provide only clean technical information without any citation numbers or reference brackets.
+2. Do not include [1], [2], [3] or any similar reference markers in your response.
+3. Present information in clear, readable paragraphs.
+
+Task:
+Search the web for current technical information about automotive diagnostics including:
+- Detailed troubleshooting information
+- Root causes and symptoms
+- Technical solutions and specifications
+- Step-by-step diagnostic procedures
+
+Format:
+- Write in natural paragraphs
+- Be comprehensive and technical
+- Remove all citation markers from your response"""
 
 # State definition
 class MainState(TypedDict):
@@ -68,3 +81,4 @@ def stream_diagnostic_workflow(user_question, thread_id="default"):
         node_output = event[node_name]
 
         yield node_name, node_output
+
