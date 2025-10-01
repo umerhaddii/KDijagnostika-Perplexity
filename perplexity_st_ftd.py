@@ -43,7 +43,7 @@ if user_question:
         sonar_response = ""
         
         # Initialize status container
-        status_container = st.status("🔍 Searching web for diagnostic information...")
+        status_container = st.status("thinking and reasoning")
         
         # Stream through LangGraph workflow
         for node_name, node_output in stream_diagnostic_workflow(user_question, st.session_state.thread_id):
@@ -59,3 +59,4 @@ if user_question:
         "role": "assistant", 
         "content": sonar_response
     })
+
