@@ -12,6 +12,7 @@ Rules:
 1. Provide only clean technical information without any citation numbers or reference brackets.
 2. Do not include [1], [2], [3] or any similar reference markers in your response.
 3. Present information in clear, readable paragraphs.
+4. IMPORTANT: Always respond in the same language as the user's question. If the question is in Croatian, answer in Croatian. If in English, answer in English.
 
 Task:
 Search the web for current technical information about automotive diagnostics including:
@@ -81,4 +82,5 @@ def stream_diagnostic_workflow(user_question, thread_id="default"):
         node_output = event[node_name]
 
         yield node_name, node_output
+
 
