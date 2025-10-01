@@ -6,10 +6,11 @@ from typing import TypedDict
 from openai import OpenAI
 import streamlit as st
 
-# System prompt
 SONAR_PROMPT = """Search the web for current technical information about automotive diagnostics. 
 Find detailed troubleshooting information, causes, solutions, and technical specifications.
-Include sources and provide comprehensive technical data that will help diagnose automotive issues."""
+Include comprehensive technical data that will help diagnose automotive issues.
+
+IMPORTANT: Provide only the information without any citation numbers, brackets, or reference links. Give clean text responses only."""
 
 # State definition
 class MainState(TypedDict):
@@ -65,4 +66,5 @@ def stream_diagnostic_workflow(user_question, thread_id="default"):
     for event in workflow.stream(initial_state, config):
         node_name = list(event.keys())[0]
         node_output = event[node_name]
+
         yield node_name, node_output
