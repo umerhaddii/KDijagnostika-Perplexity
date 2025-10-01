@@ -24,7 +24,7 @@ with st.sidebar:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         if message["role"] == "assistant":
-            st.subheader("🌐 Diagnostic Response:")
+            st.subheader("Diagnostic Response:")
             st.markdown(message["content"])
         else:
             st.markdown(message["content"])
@@ -59,5 +59,6 @@ if user_question:
         "role": "assistant", 
         "content": sonar_response
     })
+
 
 
